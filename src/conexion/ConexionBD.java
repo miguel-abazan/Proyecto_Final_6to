@@ -91,10 +91,10 @@ public class ConexionBD {
       Integer rslt=0;
       try {
           Statement ejc = ConexionBD.con.createStatement();
-          ResultSet res = ejc.executeQuery("SELECT * FROM Usuarios WHERE nom_Usuario='"+ user+ "' AND pass='"+co+"'");
+          ResultSet res = ejc.executeQuery("SELECT * FROM usuarios WHERE user_name='"+ user+ "' AND passwd='"+co+"'");
           
           if(res.next()){
-              JOptionPane.showMessageDialog(null, "Incgreso Correcto");
+              JOptionPane.showMessageDialog(null, "Ingreso Correcto");
               rslt =1;
           }else{
               JOptionPane.showMessageDialog(null, "Error EN contraseña/ usuario");

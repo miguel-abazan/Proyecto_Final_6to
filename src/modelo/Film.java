@@ -12,25 +12,21 @@ import java.util.Date;
  * @author Miguel
  */
 public class Film {
-    /**CREATE TABLE film(film_id SERIAL PRIMARY KEY, title varchar(128) NOT NULL,description text,release_year date,
-language_name varchar(45), original_language_name varchar(45),length smallint, 
-cost numeric(5,2),rating varchar(45),category_name varchar(45),
-foreign key(language_name) references language (name),
-foreign key(original_language_name) references language (name),
-foreign key(rating) references rating (rating_name),
-foreign key(category_name) references category (name));*/
+
     private int id;
     private String titulo;
     private String desc;
     private Date fehca;
     private String lengName;
     private String lengOri;
-    private String duracion;
+    private int duracion;
     private double costo;
     private String rating;  
     private String cat;
 
-    public Film(int id, String titulo, String desc, Date fehca, String lengName, String lengOri, String duracion, double costo, String rating, String cat) {
+    public Film(){}
+
+    public Film(int id, String titulo, String desc, Date fehca, String lengName, String lengOri, int duracion, double costo, String rating, String cat) {
         this.id = id;
         this.titulo = titulo;
         this.desc = desc;
@@ -91,11 +87,11 @@ foreign key(category_name) references category (name));*/
         this.lengOri = lengOri;
     }
 
-    public String getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(String duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 
@@ -122,8 +118,5 @@ foreign key(category_name) references category (name));*/
     public void setCat(String cat) {
         this.cat = cat;
     }
-
-    
-              
     
 }

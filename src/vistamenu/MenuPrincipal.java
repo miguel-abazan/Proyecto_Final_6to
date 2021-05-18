@@ -17,6 +17,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public static FilmMenu m = new FilmMenu();
     public static ActorMenu a = new ActorMenu();
     public static Vistas afm = new Vistas();
+    public static Graficas g = new Graficas();
        
     /**
      * Creates new form MenuPrincipal
@@ -73,6 +74,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btn4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn4.setForeground(new java.awt.Color(255, 255, 255));
         btn4.setText("GRÁFICAS");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, 280, 80));
 
         btn5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -116,6 +122,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         m.setVisible(true);
         m.setDefaultCloseOperation(HIDE_ON_CLOSE);
     }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        // TODO add your handling code here:
+        g.setVisible(true);
+        g.setDefaultCloseOperation(HIDE_ON_CLOSE);
+    }//GEN-LAST:event_btn4ActionPerformed
 
     /**
      * @param args the command line arguments

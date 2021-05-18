@@ -29,6 +29,7 @@ public class ActorMenu extends javax.swing.JFrame {
     public ActorMenu() {
         initComponents();
         cargarActor();
+        this.setLocationRelativeTo(null);
     }
 
     /**

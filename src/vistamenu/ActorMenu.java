@@ -56,7 +56,7 @@ public class ActorMenu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblActor = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtB = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -162,7 +162,13 @@ public class ActorMenu extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Buscar:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 176, -1));
+
+        txtB.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtB, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 176, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 520, 280));
 
@@ -276,6 +282,11 @@ public class ActorMenu extends javax.swing.JFrame {
         txtAp.setText(String.valueOf(tblActor.getValueAt(select, 2)));
     }//GEN-LAST:event_tblActorMouseClicked
 
+    private void txtBKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBKeyReleased
+        // TODO add your handling code here:
+        cargarActor();
+    }//GEN-LAST:event_txtBKeyReleased
+
     
     /**
      * @param args the command line arguments
@@ -314,7 +325,8 @@ public class ActorMenu extends javax.swing.JFrame {
 public void cargarActor(){
         DefaultTableModel modelo = (DefaultTableModel) tblActor.getModel();
         modelo.setRowCount(0);
-        rs = conexion.ConexionBD.Consulta("SELECT * FROM actor");
+        rs = conexion.ConexionBD.Consulta("SELECT * FROM actor WHERE actor_name LIKE '"+txtB.getText()+"%' "
+                + "OR  actor_last_name LIKE '"+txtB.getText()+"%'");
         try {
             while (rs.next()){
                 Vector v= new Vector();
@@ -342,9 +354,9 @@ public void cargarActor(){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTable tblActor;
     private javax.swing.JTextField txtAp;
+    private javax.swing.JTextField txtB;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNom;
     // End of variables declaration//GEN-END:variables

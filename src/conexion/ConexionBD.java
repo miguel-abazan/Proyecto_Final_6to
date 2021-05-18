@@ -1,6 +1,9 @@
 package conexion;
+
 import java.sql.*;
 import javax.swing.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class ConexionBD {
    
     static Connection con;
@@ -43,6 +46,24 @@ public class ConexionBD {
         }
         return res; 
     }
+   
+   public boolean ejecutarInstruccion1(String sql){
+        boolean res = false;
+        try {
+            stm = con.createStatement(); 
+            stm.execute(sql); 
+            res = true;  
+        } catch (Exception ex) {
+           Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                con.close();
+            } catch (Exception ex) {
+             Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);    
+            }
+        }
+        return res; 
+    }
     public boolean ejecutarInstrucciones(String sql) {
 
         try {
@@ -61,16 +82,7 @@ public class ConexionBD {
 
     }
     
-    public static ResultSet ejecutarConsultaDeRegistros(String sql){
-        ResultSet rs = null;
-        try {
-            ps= con.prepareStatement(sql);
-            return ps.executeQuery(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return rs;
-        }
-    }
+   
     public static ResultSet Consulta(String consulta){
         Connection con = getConnection();
         Statement declara;

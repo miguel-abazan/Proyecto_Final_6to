@@ -7,30 +7,25 @@ package vistamenu;
 
 import java.sql.SQLException;
 import java.util.Vector;
-import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import static vistamenu.FilmMenu.rs;
-import static vistamenu.MenuPrincipal.afm;
 
 /**
  *
  * @author Miguel
  */
-public class Graficas extends javax.swing.JFrame {
+public class GIdiomas extends javax.swing.JFrame {
 
     /**
-     * Creates new form Graficas
+     * Creates new form GIdiomas
      */
-    public Graficas() {
+    public GIdiomas() {
         initComponents();
-        cargarCat();
-        this.setLocationRelativeTo(null);
+        cargarIdi();
     }
 
     /**
@@ -44,9 +39,8 @@ public class Graficas extends javax.swing.JFrame {
 
         jp = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblCate = new javax.swing.JTable();
+        tblIdi = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -54,10 +48,10 @@ public class Graficas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jp.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Categoría De Films", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
+        jp.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Idioma Films", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
         jp.setOpaque(false);
 
-        tblCate.setModel(new javax.swing.table.DefaultTableModel(
+        tblIdi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -65,7 +59,7 @@ public class Graficas extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Categoría", "Categorías Más registradas"
+                "Idiomas", "Idiomas con Más Films"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -76,7 +70,7 @@ public class Graficas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblCate);
+        jScrollPane1.setViewportView(tblIdi);
 
         jButton1.setText("Graficar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,27 +97,18 @@ public class Graficas extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 940, 460));
-
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, -1, -1));
+        getContentPane().add(jp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 940, 470));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/dondoA.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 603));
 
-        jMenu2.setText("GRÁFICAR IDIOMAS");
+        jMenu2.setText("REGRESAR");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu2MouseClicked(evt);
-            }
-        });
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
             }
         });
         jMenuBar1.add(jMenu2);
@@ -135,43 +120,37 @@ public class Graficas extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-         DefaultPieDataset dtsc = new DefaultPieDataset();
-            
-            for(int i = 0; i < tblCate.getRowCount(); i++){
-                dtsc.setValue(tblCate.getValueAt(i, 0).toString(), Integer.parseInt(tblCate.getValueAt(i, 1).toString()));
-            }
-            JFreeChart ch = ChartFactory.createPieChart("Grafica PASTEL 2D", dtsc,true, true, false);
-            ChartPanel cp = new ChartPanel(ch);
-            jp.add(cp);
-            cp.setBounds(350,40,500,400);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jMenu2ActionPerformed
+        DefaultPieDataset dtsc = new DefaultPieDataset();
+
+        for(int i = 0; i < tblIdi.getRowCount(); i++){
+            dtsc.setValue(tblIdi.getValueAt(i, 0).toString(), Integer.parseInt(tblIdi.getValueAt(i, 1).toString()));
+        }
+        JFreeChart ch = ChartFactory.createPieChart("Grafica PASTEL 2D", dtsc,true, true, false);
+        ChartPanel cp = new ChartPanel(ch);
+        jp.add(cp);
+        cp.setBounds(350,40,500,400);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         // TODO add your handling code here:
-        GIdiomas gi = new GIdiomas();
-        gi.setVisible(true);
-        gi.setDefaultCloseOperation(HIDE_ON_CLOSE);
-        gi.setLocationRelativeTo(null);
+        Graficas g =new Graficas();
+        g.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_jMenu2MouseClicked
 
-    public void cargarCat(){
-        DefaultTableModel modelo = (DefaultTableModel) tblCate.getModel();
+    public void cargarIdi(){
+        DefaultTableModel modelo = (DefaultTableModel) tblIdi.getModel();
         modelo.setRowCount(0);
-        rs = conexion.ConexionBD.Consulta("SELECT * FROM categorias");
+        rs = conexion.ConexionBD.Consulta("SELECT * FROM idiomas");
         try {
             while (rs.next()){
                 Vector v= new Vector();
                 v.add(rs.getString(1));
                 v.add(rs.getInt(2));
                 modelo.addRow(v);
-                tblCate.setModel(modelo); 
+                tblIdi.setModel(modelo); 
             }
         } catch (SQLException e) {
             
@@ -194,32 +173,31 @@ public class Graficas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Graficas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GIdiomas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Graficas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GIdiomas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Graficas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GIdiomas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Graficas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GIdiomas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Graficas().setVisible(true);
+                new GIdiomas().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jp;
-    private javax.swing.JTable tblCate;
+    private javax.swing.JTable tblIdi;
     // End of variables declaration//GEN-END:variables
 }

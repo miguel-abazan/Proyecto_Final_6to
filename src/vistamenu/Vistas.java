@@ -29,6 +29,7 @@ public class Vistas extends javax.swing.JFrame {
     public Vistas() {
         initComponents();
         cargarConsultas();
+        this.setLocationRelativeTo(null);
     }
 
     /**

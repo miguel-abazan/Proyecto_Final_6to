@@ -50,13 +50,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         btn1 = new javax.swing.JButton();
+        btn7 = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
+        btn6 = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
         btn4 = new javax.swing.JButton();
         btn5 = new javax.swing.JButton();
-        btn2 = new javax.swing.JButton();
-        btn6 = new javax.swing.JButton();
-        btn7 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,6 +66,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("CERRAR SESIÓN");
+        jButton1.setOpaque(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 250, 70));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setOpaque(false);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn1.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,58 +90,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btn1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 280, 80));
-
-        btn3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btn3.setForeground(new java.awt.Color(255, 255, 255));
-        btn3.setText("VISTAS");
-        btn3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 410, 280, 80));
-
-        btn4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btn4.setForeground(new java.awt.Color(255, 255, 255));
-        btn4.setText("GRÁFICAS");
-        btn4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 490, 280, 80));
-
-        btn5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btn5.setForeground(new java.awt.Color(255, 255, 255));
-        btn5.setText("REPORTE_COM..");
-        btn5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 570, 280, 80));
-
-        btn2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btn2.setForeground(new java.awt.Color(255, 255, 255));
-        btn2.setText("ACTOR");
-        btn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 170, 280, 80));
-
-        btn6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btn6.setForeground(new java.awt.Color(255, 255, 255));
-        btn6.setText("ACTOR_FILM");
-        btn6.setOpaque(false);
-        btn6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 330, 280, 80));
+        jPanel3.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 191, 63));
 
         btn7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn7.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,7 +101,60 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btn7ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, 280, 80));
+        jPanel3.add(btn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 191, 63));
+
+        btn2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btn2.setForeground(new java.awt.Color(255, 255, 255));
+        btn2.setText("ACTOR");
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 191, 63));
+
+        btn6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btn6.setForeground(new java.awt.Color(255, 255, 255));
+        btn6.setText("ACTOR_FILM");
+        btn6.setOpaque(false);
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, 63));
+
+        btn3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btn3.setForeground(new java.awt.Color(255, 255, 255));
+        btn3.setText("VISTAS");
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 191, 63));
+
+        btn4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btn4.setForeground(new java.awt.Color(255, 255, 255));
+        btn4.setText("GRÁFICAS");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 191, 63));
+
+        btn5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btn5.setForeground(new java.awt.Color(255, 255, 255));
+        btn5.setText("REPORTE_COM..");
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 230, 63));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, 270, 530));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Movies-Spokane-1080x720.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -205,6 +224,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn5ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+          Login lo = new Login(); 
+        lo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,7 +291,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn5;
     private javax.swing.JButton btn6;
     private javax.swing.JButton btn7;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

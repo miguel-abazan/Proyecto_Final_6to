@@ -65,9 +65,13 @@ public class Film_Actor extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblF = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        txtb2 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblA = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        txtb1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblAF = new javax.swing.JTable();
@@ -213,19 +217,39 @@ public class Film_Actor extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblF);
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("BUSCAR:");
+
+        txtb2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtb2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtb2KeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtb2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -253,19 +277,39 @@ public class Film_Actor extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblA);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("BUSCAR:");
+
+        txtb1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtb1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtb1KeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtb1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -487,6 +531,14 @@ public class Film_Actor extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void txtb1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtb1KeyReleased
+cargarActor();        // TODO add your handling code here:
+    }//GEN-LAST:event_txtb1KeyReleased
+
+    private void txtb2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtb2KeyReleased
+cargarfil2();        // TODO add your handling code here:
+    }//GEN-LAST:event_txtb2KeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -524,7 +576,7 @@ public class Film_Actor extends javax.swing.JFrame {
     public void cargarActor(){
         DefaultTableModel modelo = (DefaultTableModel) tblA.getModel();
         modelo.setRowCount(0);
-        rs = conexion.ConexionBD.Consulta("SELECT actor_id, actor_name  FROM actor");
+        rs = conexion.ConexionBD.Consulta("SELECT actor_id, actor_name  FROM actor WHERE actor_name LIKE'"+txtb1.getText()+"%'");
         try {
             while (rs.next()){
                 Vector v= new Vector();
@@ -542,7 +594,7 @@ public class Film_Actor extends javax.swing.JFrame {
     public void cargarfil2(){
         DefaultTableModel modelo = (DefaultTableModel) tblF.getModel();
         modelo.setRowCount(0);
-        rs = conexion.ConexionBD.Consulta("SELECT film_id, title  FROM film2");
+        rs = conexion.ConexionBD.Consulta("SELECT film_id, title  FROM film2 WHERE title LIKE'"+txtb2.getText()+"%'");
         try {
             while (rs.next()){
                 Vector v= new Vector();
@@ -586,6 +638,8 @@ public class Film_Actor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -603,5 +657,7 @@ public class Film_Actor extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdF;
     private javax.swing.JTextField txtNA;
     private javax.swing.JTextField txtNF;
+    private javax.swing.JTextField txtb1;
+    private javax.swing.JTextField txtb2;
     // End of variables declaration//GEN-END:variables
 }

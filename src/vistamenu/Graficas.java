@@ -30,6 +30,7 @@ public class Graficas extends javax.swing.JFrame {
     public Graficas() {
         initComponents();
         cargarCat();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         this.setLocationRelativeTo(null);
     }
 
@@ -52,6 +53,7 @@ public class Graficas extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jp.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Categoría De Films", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -76,9 +78,13 @@ public class Graficas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblCate.setOpaque(false);
         jScrollPane1.setViewportView(tblCate);
 
-        jButton1.setText("Graficar");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("GRAFICAR");
+        jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -92,7 +98,9 @@ public class Graficas extends javax.swing.JFrame {
             .addGroup(jpLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(jpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addGroup(jpLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(599, Short.MAX_VALUE))
         );
@@ -101,15 +109,23 @@ public class Graficas extends javax.swing.JFrame {
             .addGroup(jpLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         getContentPane().add(jp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 940, 460));
 
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, -1, -1));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("REGRESAR");
+        jButton2.setOpaque(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, 150, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/dondoA.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -160,6 +176,13 @@ public class Graficas extends javax.swing.JFrame {
         gi.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        MenuPrincipal lo = new MenuPrincipal(); 
+        lo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public void cargarCat(){
         DefaultTableModel modelo = (DefaultTableModel) tblCate.getModel();

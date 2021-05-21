@@ -30,6 +30,7 @@ public class ActorMenu extends javax.swing.JFrame {
         initComponents();
         cargarActor();
         this.setLocationRelativeTo(null);
+        txtID.setEditable(false);
     }
 
     /**
@@ -59,7 +60,8 @@ public class ActorMenu extends javax.swing.JFrame {
         txtB = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -100,34 +102,51 @@ public class ActorMenu extends javax.swing.JFrame {
         });
         jPanel1.add(txtAp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 130, -1));
 
-        bnt1.setText("Guardar");
+        bnt1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bnt1.setForeground(new java.awt.Color(255, 255, 255));
+        bnt1.setText("GUARDAR");
+        bnt1.setOpaque(false);
         bnt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bnt1ActionPerformed(evt);
             }
         });
-        jPanel1.add(bnt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        jPanel1.add(bnt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 183, -1, 40));
 
-        jButton2.setText("Eliminar");
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("ELIMINAR");
+        jButton2.setOpaque(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 110, 40));
 
-        jButton3.setText("Modificar");
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("MODIFICAR");
+        jButton3.setOpaque(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 130, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 280, 280));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 280, 310));
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("REGRESAR");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
+        jButton4.setOpaque(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 330, 120, 40));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ACTORES:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setOpaque(false);
@@ -174,14 +193,18 @@ public class ActorMenu extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/actorefond.jpeg"))); // NOI18N
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 390));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     
     private void bnt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt1ActionPerformed
-        if(txtNom.getText().equals("") ||txtAp.getText().equals("")){
+        if(txtNom.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "INGRESA CAMPO NOMBRE", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(txtAp.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "INGRESA CAMPO APELLIDO", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(txtNom.getText().equals("") ||txtAp.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Ingrese los datos Correctamente", "Error", JOptionPane.ERROR_MESSAGE);
    
         } else {
@@ -223,7 +246,7 @@ public class ActorMenu extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if(txtID.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Seleccione Registro a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "SELECCIONE REGISTRO DE LA TABLA PARA ELIMINAR", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
         int row = Integer.parseInt(txtID.getText());
         int opc = JOptionPane.showConfirmDialog(this, "¿Desea Eliminar De forma Permanente Este Registro?","Pregunta",JOptionPane.YES_NO_CANCEL_OPTION);
@@ -248,8 +271,12 @@ public class ActorMenu extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        if(txtID.getText().isEmpty() ||txtNom.getText().equals("") ||txtAp.getText().equals("")){
-            JOptionPane.showMessageDialog(getParent(), " Ingrese Datos Correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+        if(txtNom.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "INGRESA CAMPO NOMBRE", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(txtAp.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "INGRESA CAMPO APELLIDO", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(txtID.getText().isEmpty() ||txtNom.getText().equals("") ||txtAp.getText().equals("")){
+            JOptionPane.showMessageDialog(getParent(), " SELECCIONE REGISTRO DE LA TABLA PARA MODIFICAR", "AVISO", JOptionPane.INFORMATION_MESSAGE);
         }else {
                 int opcion = JOptionPane.showConfirmDialog(null, "¿DESEA MODIFICAR EL REGISTRO?", "AVISO", JOptionPane.WARNING_MESSAGE);
 		if(opcion == JOptionPane.YES_OPTION){
@@ -286,6 +313,13 @@ public class ActorMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         cargarActor();
     }//GEN-LAST:event_txtBKeyReleased
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        MenuPrincipal lo = new MenuPrincipal(); 
+        lo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     
     /**

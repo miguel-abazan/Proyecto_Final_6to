@@ -5,6 +5,14 @@
  */
 package vistamenu;
 
+import conexion.ConexionBD;
+import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
 
 
 
@@ -18,6 +26,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public static ActorMenu a = new ActorMenu();
     public static Vistas afm = new Vistas();
     public static Graficas g = new Graficas();
+    public static Film_Actor af = new Film_Actor();
+    public static FilmsA_Menu fsam = new FilmsA_Menu();
+    
        
     /**
      * Creates new form MenuPrincipal
@@ -44,9 +55,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btn4 = new javax.swing.JButton();
         btn5 = new javax.swing.JButton();
         btn2 = new javax.swing.JButton();
+        btn6 = new javax.swing.JButton();
+        btn7 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,7 +73,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btn1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 280, 80));
+        jPanel1.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 280, 80));
 
         btn3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn3.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,7 +83,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btn3ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 280, 80));
+        jPanel1.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 410, 280, 80));
 
         btn4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn4.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,12 +93,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btn4ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, 280, 80));
+        jPanel1.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 490, 280, 80));
 
         btn5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn5.setForeground(new java.awt.Color(255, 255, 255));
-        btn5.setText("REPORTE_FILMS");
-        jPanel1.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 480, 280, 80));
+        btn5.setText("REPORTE_COM..");
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 570, 280, 80));
 
         btn2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn2.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,7 +113,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btn2ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 240, 280, 80));
+        jPanel1.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 170, 280, 80));
+
+        btn6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btn6.setForeground(new java.awt.Color(255, 255, 255));
+        btn6.setText("ACTOR_FILM");
+        btn6.setOpaque(false);
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 330, 280, 80));
+
+        btn7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btn7.setForeground(new java.awt.Color(255, 255, 255));
+        btn7.setText("FILMS_F");
+        btn7.setOpaque(false);
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, 280, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Movies-Spokane-1080x720.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -108,26 +149,61 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
         a.setVisible(true);
-        a.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        a.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setVisible(false);
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
         afm.setVisible(true);
         afm.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setVisible(false);
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
         m.setVisible(true);
         m.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setVisible(false);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
         g.setVisible(true);
         g.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setVisible(false);
     }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        // TODO add your handling code here: fsam.setVisible(true);
+        fsam.setVisible(true);
+        fsam.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        af.setVisible(true);
+        fsam.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        // TODO add your handling code here:
+        ConexionBD con = new ConexionBD();
+        java.sql.Connection conexion = con.getConnection();
+        
+        try {
+            String ruta = System.getProperty("user.dir")+ "/src/Reporte/general.jasper";
+            JasperReport jr =(JasperReport) JRLoader.loadObjectFromFile(ruta);
+            JasperPrint pt = JasperFillManager.fillReport(ruta, null,conexion);
+            JasperViewer jv = new JasperViewer(pt,false);
+            jv.setVisible(true);
+            jv.setDefaultCloseOperation(HIDE_ON_CLOSE);
+            
+        } catch (Exception e) {
+            System.out.println("Error"+e.getMessage());
+        }
+    }//GEN-LAST:event_btn5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,6 +250,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btn4.setContentAreaFilled(false);
         btn5.setOpaque(false);
         btn5.setContentAreaFilled(false);
+        btn6.setOpaque(false);
+        btn6.setContentAreaFilled(false);
+        btn7.setOpaque(false);
+        btn7.setContentAreaFilled(false);
         
     }
 
@@ -183,6 +263,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn3;
     private javax.swing.JButton btn4;
     private javax.swing.JButton btn5;
+    private javax.swing.JButton btn6;
+    private javax.swing.JButton btn7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

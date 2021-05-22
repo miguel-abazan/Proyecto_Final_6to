@@ -335,6 +335,8 @@ public class FilmMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "INGRESE CAMPO TÍTULO", "Error", JOptionPane.ERROR_MESSAGE);
         }else if(txtDesc.getText().equals("")){
              JOptionPane.showMessageDialog(this, "INGRESE CAMPO DESCRIPCIÓN", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(cal.getDate()==null){
+            JOptionPane.showMessageDialog(this, "INGRESE CAMPO FECHA", "Error", JOptionPane.ERROR_MESSAGE);
         }else if(cmbl1.getSelectedIndex()==0){
             JOptionPane.showMessageDialog(this, "INGRESE CAMPO IDIOMA", "Error", JOptionPane.ERROR_MESSAGE);
         }else if(cml2.getSelectedIndex()==0){

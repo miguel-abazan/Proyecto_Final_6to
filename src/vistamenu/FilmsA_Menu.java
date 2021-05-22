@@ -463,6 +463,8 @@ public class FilmsA_Menu extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(this, "INGRESE CAMPO DESCRIPCIÓN", "Error", JOptionPane.ERROR_MESSAGE);
         }else if(cmbl.getSelectedIndex()==0){
             JOptionPane.showMessageDialog(this, "INGRESE CAMPO IDIOMA", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(cal1.getDate()==null){
+            JOptionPane.showMessageDialog(this, "INGRESE CAMPO FECHA", "Error", JOptionPane.ERROR_MESSAGE);
         }else if(cmblo.getSelectedIndex()==0){
             JOptionPane.showMessageDialog(this, "INGRESE CAMPO IDIOMA ORIGINAL", "Error", JOptionPane.ERROR_MESSAGE);
         }else if(txtDA.getText().equals("")){

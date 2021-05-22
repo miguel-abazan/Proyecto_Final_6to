@@ -97,6 +97,11 @@ public class Film_Actor extends javax.swing.JFrame {
         jLabel2.setText("ID_ACTOR:");
 
         txtIdA.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtIdA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdAKeyTyped(evt);
+            }
+        });
 
         txtNA.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNA.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +154,11 @@ public class Film_Actor extends javax.swing.JFrame {
         jLabel3.setText("ID_FILM:");
 
         txtIdF.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtIdF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdFKeyTyped(evt);
+            }
+        });
 
         txtNF.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
@@ -538,6 +548,28 @@ cargarActor();        // TODO add your handling code here:
     private void txtb2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtb2KeyReleased
 cargarfil2();        // TODO add your handling code here:
     }//GEN-LAST:event_txtb2KeyReleased
+
+    private void txtIdAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdAKeyTyped
+        // TODO add your handling code here:
+        char validacion = evt.getKeyChar();
+        if (Character.isLetter(validacion)) {
+            getToolkit().beep(); 
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingresa solamente numeros","Aviso",JOptionPane.INFORMATION_MESSAGE);
+      
+        }//letras
+    }//GEN-LAST:event_txtIdAKeyTyped
+
+    private void txtIdFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdFKeyTyped
+        // TODO add your handling code here:
+        char validacion = evt.getKeyChar();
+        if (Character.isLetter(validacion)) {
+            getToolkit().beep(); 
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingresa solamente numeros","Aviso",JOptionPane.INFORMATION_MESSAGE);
+      
+        }//letras
+    }//GEN-LAST:event_txtIdFKeyTyped
 
     /**
      * @param args the command line arguments

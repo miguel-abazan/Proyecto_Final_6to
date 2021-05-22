@@ -231,6 +231,9 @@ public class FilmMenu extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtDuraKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDuraKeyTyped(evt);
+            }
         });
         jPanel2.add(txtDura, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 110, -1));
 
@@ -240,6 +243,11 @@ public class FilmMenu extends javax.swing.JFrame {
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
 
         txtCos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCosKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtCos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 110, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -323,7 +331,23 @@ public class FilmMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        if(txtTit.getText().isEmpty()||txtDesc.getText().equals("") || cmbl1.getSelectedIndex()==0 || cml2.getSelectedIndex()==0 || txtDura.getText().equals("")
+        if(txtTit.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "INGRESE CAMPO TÍTULO", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(txtDesc.getText().equals("")){
+             JOptionPane.showMessageDialog(this, "INGRESE CAMPO DESCRIPCIÓN", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(cmbl1.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(this, "INGRESE CAMPO IDIOMA", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(cml2.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(this, "INGRESE CAMPO IDIOMA ORIGINAL", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(txtDura.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "INGRESE CAMPO DÍAS ALQUILER", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(txtCos.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "INGRESE CAMPO PRECIO ALQUILER", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(cmbCla.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(this, "INGRESE CAMPO CLASIFICACIÓN", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(cmbCat.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(this, "INGRESE CAMPO CONTENIDO ESPECIAL ", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(txtTit.getText().isEmpty()||txtDesc.getText().equals("") || cmbl1.getSelectedIndex()==0 || cml2.getSelectedIndex()==0 || txtDura.getText().equals("")
                 || txtCos.getText().equals("")|| cmbCla.getSelectedIndex()==0|| cmbCat.getSelectedIndex()==0){
             JOptionPane.showMessageDialog(this, "Ingrese los datos Correctamente", "Error", JOptionPane.ERROR_MESSAGE);
             
@@ -490,11 +514,7 @@ public class FilmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdKeyReleased
 
     private void txtDuraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuraKeyReleased
-        char caracter = evt.getKeyChar(); 
-        if(caracter < '0' || caracter > '9') {
-            evt.consume();
-            JOptionPane.showMessageDialog(getParent(), "SOLO SE ADMITEN NUMEROS", "ERROR", JOptionPane.ERROR_MESSAGE);
-		}        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtDuraKeyReleased
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -503,6 +523,21 @@ public class FilmMenu extends javax.swing.JFrame {
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtDuraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuraKeyTyped
+        // TODO add your handling code here:
+        char validacion = evt.getKeyChar();
+        if (Character.isLetter(validacion)) {
+            getToolkit().beep(); 
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingresa solamente numeros","Aviso",JOptionPane.INFORMATION_MESSAGE);
+      
+        }//letras
+    }//GEN-LAST:event_txtDuraKeyTyped
+
+    private void txtCosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCosKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCosKeyTyped
 
     /**
      * @param args the command line arguments

@@ -265,6 +265,11 @@ public class FilmsA_Menu extends javax.swing.JFrame {
         jPanel1.add(cmblo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 210, -1));
 
         txtDA.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtDA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDAKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 110, -1));
 
         txtDu1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -273,9 +278,19 @@ public class FilmsA_Menu extends javax.swing.JFrame {
                 txtDu1ActionPerformed(evt);
             }
         });
+        txtDu1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDu1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtDu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 108, -1));
 
         txtCE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtCE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCEKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 123, -1));
 
         cmbCla.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -305,6 +320,14 @@ public class FilmsA_Menu extends javax.swing.JFrame {
         txtPA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPA1ActionPerformed(evt);
+            }
+        });
+        txtPA1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPA1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPA1KeyTyped(evt);
             }
         });
         jPanel1.add(txtPA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 108, -1));
@@ -587,6 +610,56 @@ public class FilmsA_Menu extends javax.swing.JFrame {
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtPA1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPA1KeyReleased
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_txtPA1KeyReleased
+
+    private void txtPA1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPA1KeyTyped
+        // TODO add your handling code here:
+          
+        char validacion = evt.getKeyChar();
+        if (Character.isLetter(validacion)) {
+            getToolkit().beep(); 
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingresa solamente numeros","Aviso",JOptionPane.INFORMATION_MESSAGE);
+      
+        }//letras
+    }//GEN-LAST:event_txtPA1KeyTyped
+
+    private void txtDAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDAKeyTyped
+        // TODO add your handling code here:
+        char validacion = evt.getKeyChar();
+        if (Character.isLetter(validacion)) {
+            getToolkit().beep(); 
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingresa solamente numeros","Aviso",JOptionPane.INFORMATION_MESSAGE);
+      
+        }//letras
+    }//GEN-LAST:event_txtDAKeyTyped
+
+    private void txtDu1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDu1KeyTyped
+        // TODO add your handling code here:
+        char validacion = evt.getKeyChar();
+        if (Character.isLetter(validacion)) {
+            getToolkit().beep(); 
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingresa solamente numeros","Aviso",JOptionPane.INFORMATION_MESSAGE);
+      
+        }//letras
+    }//GEN-LAST:event_txtDu1KeyTyped
+
+    private void txtCEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCEKeyTyped
+        // TODO add your handling code here:
+        char validacion = evt.getKeyChar();
+        if (Character.isLetter(validacion)) {
+            getToolkit().beep(); 
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Ingresa solamente numeros","Aviso",JOptionPane.INFORMATION_MESSAGE);
+      
+        }//letras
+    }//GEN-LAST:event_txtCEKeyTyped
 public void cargarFilms2(){
         DefaultTableModel modelo = (DefaultTableModel) tblFilms2.getModel();
         modelo.setRowCount(0);

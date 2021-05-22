@@ -85,6 +85,11 @@ public class ActorMenu extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 129, -1, -1));
 
         txtNom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNom.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 130, -1));
 
         txtID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -98,6 +103,11 @@ public class ActorMenu extends javax.swing.JFrame {
         txtAp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApActionPerformed(evt);
+            }
+        });
+        txtAp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApKeyTyped(evt);
             }
         });
         jPanel1.add(txtAp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 130, -1));
@@ -320,6 +330,28 @@ public class ActorMenu extends javax.swing.JFrame {
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomKeyTyped
+        // TODO add your handling code here:
+        char validacion = evt.getKeyChar();
+        if (Character.isDigit(validacion)) {
+            getToolkit().beep(); 
+            evt.consume();
+             JOptionPane.showMessageDialog(this, "Ingresa solamente letras","Aviso",JOptionPane.INFORMATION_MESSAGE);
+      
+        }//numeros
+    }//GEN-LAST:event_txtNomKeyTyped
+
+    private void txtApKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApKeyTyped
+        // TODO add your handling code here:
+        char validacion = evt.getKeyChar();
+        if (Character.isDigit(validacion)) {
+            getToolkit().beep(); 
+            evt.consume();
+             JOptionPane.showMessageDialog(this, "Ingresa solamente letras","Aviso",JOptionPane.INFORMATION_MESSAGE);
+      
+        }//numeros
+    }//GEN-LAST:event_txtApKeyTyped
 
     
     /**
